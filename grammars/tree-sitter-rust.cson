@@ -51,8 +51,8 @@ scopes:
 
   'enum_variant > identifier': 'entity.name.class'
   'enum_variant > scoped_identifier > identifier': 'entity.name.class'
-  'tuple_struct_pattern > identifier': 'entity.name.class'
-  'tuple_struct_pattern > > scoped_identifier > identifier': 'entity.name.class'
+  'tuple_struct_pattern > identifier:nth-child(0)': 'entity.name.class'
+  'tuple_struct_pattern > scoped_identifier:nth-child(0) > identifier': 'entity.name.class'
 
   'function_item > identifier': 'entity.name.function'
 
