@@ -1,0 +1,112 @@
+id: 'rust'
+name: 'Rust'
+type: 'tree-sitter'
+parser: 'tree-sitter-rust'
+legacyScopeName: 'source.rust'
+
+fileTypes: [
+  'rs'
+]
+
+comments:
+  start: '// '
+
+folds: [
+  {
+    type: 'block_comment'
+  }
+  {
+    start: {index: 0, type: '{'}
+    end: {index: -1, type: '}'}
+  }
+  {
+    start: {index: 0, type: '['}
+    end: {index: -1, type: ']'}
+  }
+  {
+    start: {index: 0, type: '('}
+    end: {index: -1, type: ')'}
+  }
+  {
+    start: {index: 0, type: '<'}
+    end: {index: -1, type: '>'}
+  }
+]
+
+scopes:
+  'type_identifier': 'support.type'
+  'primitive_type': 'support.type'
+  'field_identifier': 'variable.other.member'
+
+  'line_comment': 'comment.block'
+  'block_comment': 'comment.block'
+
+  'macro_invocation > identifier': 'entity.name.function'
+  'call_expression > identifier': 'entity.name.function'
+  'call_expression > field_expression > field_identifier': 'entity.name.function'
+  'call_expression > scoped_identifier > identifier': 'entity.name.function'
+  'generic_function > identifier': 'entity.name.function'
+  'generic_function > field_expression > field_identifier': 'entity.name.function'
+  'generic_function > scoped_identifier > identifier': 'entity.name.function'
+
+  'enum_variant > identifier': 'entity.name.class'
+  'enum_variant > scoped_identifier > identifier': 'entity.name.class'
+  'tuple_struct_pattern > identifier': 'entity.name.class'
+  'tuple_struct_pattern > > scoped_identifier > identifier': 'entity.name.class'
+
+  'function_item > identifier': 'entity.name.function'
+
+  '"let"': 'storage.modifier'
+  '"const"': 'storage.modifier'
+  '"static"': 'storage.modifier'
+  '"extern"': 'storage.modifier'
+  '"fn"': 'storage.modifier'
+  '"type"': 'storage.modifier'
+  '"impl"': 'storage.modifier'
+  '"trait"': 'storage.modifier'
+  '"mod"': 'storage.modifier'
+  '"pub"': 'storage.modifier'
+  '"crate"': 'storage.modifier'
+  '"struct"': 'storage.modifier'
+  '"enum"': 'storage.modifier'
+  '"union"': 'storage.modifier'
+
+  'unsafe': 'keyword.control'
+  '"use"': 'keyword.control'
+  '"match"': 'keyword.control'
+  '"if"': 'keyword.control'
+  '"else"': 'keyword.control'
+  '"while"': 'keyword.control'
+  '"for"': 'keyword.control'
+  '"let"': 'keyword.control'
+  '"mut"': 'keyword.control'
+  '"return"': 'keyword.control'
+  '"break"': 'keyword.control'
+  '"continue"': 'keyword.control'
+  '"throw"': 'keyword.control'
+  '"try"': 'keyword.control'
+  '"catch"': 'keyword.control'
+  '"finally"': 'keyword.control'
+  '"switch"': 'keyword.control'
+  '"case"': 'keyword.control'
+  '"default"': 'keyword.control'
+  '"export"': 'keyword.control'
+  '"import"': 'keyword.control'
+  '"from"': 'keyword.control'
+  '"yield"': 'keyword.control'
+  '"async"': 'keyword.control'
+  '"await"': 'keyword.control'
+  '"debugger"': 'keyword.control'
+
+  'char_literal': 'string.quoted.single'
+  'string_literal': 'string.quoted.double'
+  'raw_string_literal': 'string.quoted.other'
+  'boolean_literal': 'constant.language.boolean'
+  'number_literal': 'constant.numeric.decimal'
+
+  'attribute_item': 'entity.other.attribute-name'
+
+  '"ref"': 'keyword.operator'
+  '"as"': 'keyword.operator'
+  '"*"': 'keyword.operator'
+  '"&"': 'keyword.operator'
