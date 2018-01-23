@@ -70,6 +70,7 @@ scopes:
   '"struct"': 'storage.modifier'
   '"enum"': 'storage.modifier'
   '"union"': 'storage.modifier'
+  'mutable_specifier': 'storage.modifier'
 
   'unsafe': 'keyword.control'
   '"use"': 'keyword.control'
@@ -79,7 +80,6 @@ scopes:
   '"while"': 'keyword.control'
   '"for"': 'keyword.control'
   '"let"': 'keyword.control'
-  '"mut"': 'keyword.control'
   '"return"': 'keyword.control'
   '"break"': 'keyword.control'
   '"continue"': 'keyword.control'
