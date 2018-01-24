@@ -44,7 +44,7 @@ scopes:
   'macro_invocation > identifier': 'entity.name.function'
   'call_expression > identifier': 'entity.name.function'
   'call_expression > field_expression > field_identifier': 'entity.name.function'
-  'call_expression > scoped_identifier > identifier': 'entity.name.function'
+  'call_expression > scoped_identifier > identifier:nth-child(2)': 'entity.name.function'
   'generic_function > identifier': 'entity.name.function'
   'generic_function > field_expression > field_identifier': 'entity.name.function'
   'generic_function > scoped_identifier > identifier': 'entity.name.function'
@@ -55,6 +55,8 @@ scopes:
   'tuple_struct_pattern > scoped_identifier:nth-child(0) > identifier': 'entity.name.class'
 
   'function_item > identifier': 'entity.name.function'
+
+  'lifetime > identifier': 'constant.variable'
 
   '"let"': 'storage.modifier'
   '"const"': 'storage.modifier'
@@ -78,6 +80,7 @@ scopes:
   '"if"': 'keyword.control'
   '"else"': 'keyword.control'
   '"while"': 'keyword.control'
+  '"loop"': 'keyword.control'
   '"for"': 'keyword.control'
   '"let"': 'keyword.control'
   '"return"': 'keyword.control'
