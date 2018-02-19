@@ -88,6 +88,7 @@ scopes:
   '"break"': 'keyword.control'
   '"where"': 'keyword.control'
   '"ref"': 'keyword.control'
+  '"macro_rules!"': 'keyword.control'
 
   'char_literal': 'string.quoted.single'
   'string_literal': 'string.quoted.double'
@@ -97,7 +98,6 @@ scopes:
 
   'attribute_item': 'entity.other.attribute-name'
 
-  '"ref"': 'keyword.operator'
   '"as"': 'keyword.operator'
   '"*"': 'keyword.operator'
   '"&"': 'keyword.operator'
