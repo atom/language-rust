@@ -55,6 +55,7 @@ scopes:
   'tuple_struct_pattern > scoped_identifier:nth-child(0) > identifier': 'entity.name.class'
 
   'function_item > identifier': 'entity.name.function'
+  'function_signature_item > identifier': 'entity.name.function'
 
   'lifetime > identifier': 'constant.variable'
 
