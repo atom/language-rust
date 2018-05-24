@@ -86,6 +86,7 @@ scopes:
   '"for"': 'keyword.control'
   '"let"': 'keyword.control'
   '"return"': 'keyword.control'
+  '"continue"': 'keyword.control'
   '"break"': 'keyword.control'
   '"where"': 'keyword.control'
   '"ref"': 'keyword.control'
