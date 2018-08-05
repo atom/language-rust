@@ -41,21 +41,46 @@ scopes:
   'line_comment': 'comment.block'
   'block_comment': 'comment.block'
 
-  'macro_invocation > identifier': 'entity.name.function'
-  'call_expression > identifier': 'entity.name.function'
-  'call_expression > field_expression > field_identifier': 'entity.name.function'
-  'call_expression > scoped_identifier > identifier:nth-child(2)': 'entity.name.function'
-  'generic_function > identifier': 'entity.name.function'
-  'generic_function > field_expression > field_identifier': 'entity.name.function'
-  'generic_function > scoped_identifier > identifier': 'entity.name.function'
+  'identifier': [
+    {match: '^[A-Z\\d_]+$', scopes: 'constant.other'}
+  ]
 
-  'enum_variant > identifier': 'entity.name.class'
-  'enum_variant > scoped_identifier > identifier': 'entity.name.class'
-  'tuple_struct_pattern > identifier:nth-child(0)': 'entity.name.class'
-  'tuple_struct_pattern > scoped_identifier:nth-child(0) > identifier': 'entity.name.class'
+  '''
+  identifier,
+  call_expression > identifier,
+  call_expression > field_expression > field_identifier,
+  call_expression > scoped_identifier > identifier:nth-child(2)
+  ''': [
+    {match: '^[A-Z]', scopes: 'entity.name.class'}
+  ]
 
-  'function_item > identifier': 'entity.name.function'
-  'function_signature_item > identifier': 'entity.name.function'
+  '''
+  macro_invocation > identifier,
+  macro_definition > identifier,
+  call_expression > identifier,
+  call_expression > field_expression > field_identifier,
+  call_expression > scoped_identifier > identifier:nth-child(2),
+  generic_function > identifier,
+  generic_function > field_expression > field_identifier,
+  generic_function > scoped_identifier > identifier,
+  function_item > identifier,
+  function_signature_item > identifier,
+  ''': 'entity.name.function'
+
+  '''
+  use_wildcard > identifier:nth-child(0),
+  scoped_type_identifier > identifier:nth-child(0),
+  scoped_type_identifier > scoped_identifier:nth-child(0) > identifier,
+  scoped_identifier > identifier:nth-child(0),
+  scoped_identifier > scoped_identifier:nth-child(0) > identifier,
+  use_declaration > identifier,
+  use_declaration > scoped_identifier > identifier,
+  use_list > identifier,
+  use_list > scoped_identifier > identifier,
+  meta_item > identifier
+  ''': [
+    {match: '^[A-Z]', scopes: 'support.type'}
+  ]
 
   'lifetime > identifier': 'constant.variable'
 
@@ -76,11 +101,12 @@ scopes:
   '"union"': 'storage.modifier'
   'mutable_specifier': 'storage.modifier'
 
-  'unsafe': 'keyword.control'
+  '"unsafe"': 'keyword.control'
   '"use"': 'keyword.control'
   '"match"': 'keyword.control'
   '"if"': 'keyword.control'
   '"else"': 'keyword.control'
+  '"move"': 'keyword.control'
   '"while"': 'keyword.control'
   '"loop"': 'keyword.control'
   '"for"': 'keyword.control'
@@ -96,10 +122,14 @@ scopes:
   'string_literal': 'string.quoted.double'
   'raw_string_literal': 'string.quoted.other'
   'boolean_literal': 'constant.language.boolean'
-  'number_literal': 'constant.numeric.decimal'
+  'integer_literal': 'constant.numeric.decimal'
+  'float_literal': 'constant.numeric.decimal'
+  'escape_sequence': 'constant.character.escape'
 
-  'attribute_item': 'entity.other.attribute-name'
+  'attribute_item, inner_attribute_item': 'entity.other.attribute-name'
 
-  '"as"': 'keyword.operator'
-  '"*"': 'keyword.operator'
-  '"&"': 'keyword.operator'
+  '''
+  "as",
+  "*",
+  "&",
+  ''': 'keyword.operator'
