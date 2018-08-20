@@ -1,8 +1,7 @@
-id: 'rust'
 name: 'Rust'
+scopeName: 'source.rust'
 type: 'tree-sitter'
 parser: 'tree-sitter-rust'
-legacyScopeName: 'source.rust'
 
 fileTypes: [
   'rs'
