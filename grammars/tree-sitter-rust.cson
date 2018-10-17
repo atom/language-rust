@@ -67,6 +67,18 @@ scopes:
   ''': 'entity.name.function'
 
   '''
+  use_list > self,
+  scoped_use_list > self,
+  scoped_identifier> self,
+  use_list > crate,
+  scoped_use_list > crate,
+  scoped_identifier> crate,
+  use_list > super,
+  scoped_use_list > super,
+  scoped_identifier> super
+  ''': 'keyword.control'
+
+  '''
   use_wildcard > identifier:nth-child(0),
   scoped_type_identifier > identifier:nth-child(0),
   scoped_type_identifier > scoped_identifier:nth-child(0) > identifier,
@@ -90,6 +102,7 @@ scopes:
   '"fn"': 'storage.modifier'
   '"type"': 'storage.modifier'
   '"impl"': 'storage.modifier'
+  '"dyn"': 'storage.modifier'
   '"trait"': 'storage.modifier'
   '"mod"': 'storage.modifier'
   '"pub"': 'storage.modifier'
@@ -104,6 +117,7 @@ scopes:
   '"use"': 'keyword.control'
   '"match"': 'keyword.control'
   '"if"': 'keyword.control'
+  '"in"': 'keyword.control'
   '"else"': 'keyword.control'
   '"move"': 'keyword.control'
   '"while"': 'keyword.control'
@@ -116,6 +130,8 @@ scopes:
   '"where"': 'keyword.control'
   '"ref"': 'keyword.control'
   '"macro_rules!"': 'keyword.control'
+
+  '"as"': 'keyword.operator'
 
   'char_literal': 'string.quoted.single'
   'string_literal': 'string.quoted.double'
