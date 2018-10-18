@@ -1,6 +1,6 @@
 {
-  "name": "language-rust",
-  "version": "0.0.0",
+  "name": "language-rust-bundled",
+  "version": "0.1.0",
   "description": "Rust support for Atom",
   "keywords": [
     "language",
